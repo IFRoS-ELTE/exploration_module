@@ -18,16 +18,18 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
         libgl1-mesa-dev \
         libglu1-mesa-dev \
         x11-apps \
-        ros-noetic-rviz \
-        ros-noetic-rqt \
-        ros-noetic-rqt-common-plugins \
-        ros-noetic-navigation \
-        ros-noetic-explore-lite \
+        ros-${ROS_DISTRO}-rviz \
+        ros-${ROS_DISTRO}-rqt \
+        ros-${ROS_DISTRO}-rqt-common-plugins \
+        ros-${ROS_DISTRO}-navigation \
+        ros-${ROS_DISTRO}-explore-lite \
+        ros-${ROS_DISTRO}-teleop-twist-keyboard \
+        libasio-dev \
     && apt-get clean \ 
     && rm -rf /var/lib/apt/lists/*
 
 # Source setup.bash of ROS2 humble
-RUN echo "source /opt/ros/noetic/setup.bash" >> /root/.bashrc
+RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> /root/.bashrc
 
 # RUN rosdep update && \
 #     rosdep install
