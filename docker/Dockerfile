@@ -28,6 +28,31 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
         kmod \
         iproute2 \
         linux-modules-extra-$(uname -r) \
+        can-utils \
+    && apt-get clean \ 
+    && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && apt-get install --no-install-recommends -y \
+        build-essential \
+        git \
+        python3-catkin-tools \
+        python3-pip \
+        nano \
+        curl \
+        wget \
+        libgl1-mesa-dev \
+        libglu1-mesa-dev \
+        x11-apps \
+        ros-${ROS_DISTRO}-rviz \
+        ros-${ROS_DISTRO}-rqt \
+        ros-${ROS_DISTRO}-rqt-common-plugins \
+        ros-${ROS_DISTRO}-navigation \
+        ros-${ROS_DISTRO}-explore-lite \
+        ros-${ROS_DISTRO}-teleop-twist-keyboard \
+        libasio-dev \
+        kmod \
+        iproute2 \
+        linux-modules-extra-$(uname -r) \
     && apt-get clean \ 
     && rm -rf /var/lib/apt/lists/*
 
