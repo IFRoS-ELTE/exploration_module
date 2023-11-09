@@ -1,0 +1,12 @@
+<launch>
+
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+        <rosparam file="$(find scout_exploration)/cfg/costmap_common.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find scout_exploration)/cfg/costmap_common.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find scout_exploration)/cfg/costmap_local.yaml" command="load" />
+        <rosparam file="$(find scout_exploration)/cfg/costmap_global.yaml" command="load" />
+    </node>
+
+    <node name="z_coordinate_fixer_node" pkg="scout_exploration" type="tf_fixer.py" output="screen"/>
+
+</launch>
