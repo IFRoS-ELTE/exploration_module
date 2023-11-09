@@ -25,6 +25,9 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
         ros-${ROS_DISTRO}-explore-lite \
         ros-${ROS_DISTRO}-teleop-twist-keyboard \
         libasio-dev \
+        kmod \
+        iproute2 \
+        linux-modules-extra-$(uname -r) \
     && apt-get clean \ 
     && rm -rf /var/lib/apt/lists/*
 
