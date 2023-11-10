@@ -14,6 +14,7 @@ if [ ! -e "CONTAINER_INITIALIZED_PLACEHOLDER" ]; then
     touch "CONTAINER_INITIALIZED_PLACEHOLDER" # <== This placeholder file used in the github action to check when colcon build is done, do not remove
 fi
     source "/root/ros_ws/devel/setup.bash"
+    sleep 5
     roslaunch scout_exploration navigation.launch # <== change to your launch file // comment out if you don't want auto launch
 
 exec "$@"
