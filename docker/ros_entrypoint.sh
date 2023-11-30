@@ -15,6 +15,10 @@ if [ ! -e "CONTAINER_INITIALIZED_PLACEHOLDER" ]; then
 fi
     source "/root/ros_ws/devel/setup.bash"
     sleep 5
-    roslaunch scout_exploration navigation.launch # <== change to your launch file // comment out if you don't want auto launch
+    if [ -n "$AUTO_EXPLORE" ]; then
+        roslaunch scout_exploration nav_and_explore.launch # <== change to your launch file // comment out if you don't want auto launch
+    else
+        roslaunch scout_exploration navigation.launch
+    fi
 
 exec "$@"
