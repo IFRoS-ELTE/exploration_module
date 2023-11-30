@@ -7,8 +7,6 @@
         <rosparam file="$(find scout_exploration)/cfg/costmap_global.yaml" command="load" />
     </node>
 
-    <node name="z_coordinate_fixer_node" pkg="scout_exploration" type="tf_fixer.py" output="screen"/>
-
     <include file="$(find scout_bringup)/launch/scout_robot_base.launch"/>
 
 </launch>
