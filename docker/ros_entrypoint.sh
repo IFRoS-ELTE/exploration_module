@@ -15,7 +15,8 @@ if [ ! -e "CONTAINER_INITIALIZED_PLACEHOLDER" ]; then
 fi
     source "/root/ros_ws/devel/setup.bash"
     sleep 5
-    if [ -n "$AUTO_EXPLORE" ]; then
+    if [ "$AUTO_EXPLORE" == "true" ]; then
+        echo "Starting auto exploration!"
         roslaunch scout_exploration nav_and_explore.launch # <== change to your launch file // comment out if you don't want auto launch
     else
         roslaunch scout_exploration navigation.launch
