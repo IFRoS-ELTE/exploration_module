@@ -5,6 +5,8 @@
         <rosparam file="$(find scout_exploration)/cfg/costmap_common.yaml" command="load" ns="local_costmap" />
         <rosparam file="$(find scout_exploration)/cfg/costmap_local.yaml" command="load" />
         <rosparam file="$(find scout_exploration)/cfg/costmap_global.yaml" command="load" />
+    
+        <rosparam file="$(find scout_exploration)/cfg/base_local_planner_params.yaml" command="load" />
     </node>
 
     <include file="$(find scout_bringup)/launch/scout_robot_base.launch"/>
