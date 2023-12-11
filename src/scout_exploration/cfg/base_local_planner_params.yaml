@@ -1,4 +1,4 @@
 base_local_planner:
   TrajectoryPlannerROS:
-    max_vel_x: 0.2 # Set your maximum linear velocity here
-    max_rotational_vel: 0.5 # Set your maximum angular velocity here
+    max_vel_x: 0.1 # Set your maximum linear velocity here
+    max_rotational_vel: 0.05 # Set your maximum angular velocity here
