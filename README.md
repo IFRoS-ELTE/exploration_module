@@ -33,3 +33,10 @@ cd ./exploration_module/docker && sudo docker compose up
 ### Stopping and re-launching
 
 To stop and close the nodes, simply use `CTRL+C`, this will stop all containers. You can use `sudo docker compose up` if you want to re-launch. If you, for some reason, want to remove the containers, you can do so with the `sudo docker compose down` command. This means that at the next startup using `sudo docker compose up`, the containers will be newly created and all the ros workspaces inside will have to be freshly built as well.
+
+## Submodules
+### [scout_sdk](https://github.com/agilexrobotics/scout_ros)
+Required repository to communicate with the mobile base
+
+### [ugv_sdk](https://github.com/agilexrobotics/ugv_sdk)
+Dependency of the scout_sdk.
