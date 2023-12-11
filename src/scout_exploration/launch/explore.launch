@@ -1,18 +1,36 @@
 <launch>
 
+    <!-- Launching the explore_lite node -->
+
     <node pkg="explore_lite" type="explore" respawn="false" name="explore" output="screen">
+
+        <!-- Set the base frame for the robot -->
         <param name="robot_base_frame" value="robot/base_link_fixed"/>
+        
+        <!-- Specify the topic for the costmap -->
         <!--<param name="costmap_topic" value="/move_base/global_costmap/costmap"/>-->
-        <!--<param name="costmap_updates_topic" value="/move_base/global_costmap/costmap_updates"/>-->
         <param name="costmap_topic" value="/map"/>
+
+        <!-- Enable visualization of exploration data -->
         <param name="visualize" value="true"/>
+
+        <!-- Set the planner frequency for exploration -->
         <param name="planner_frequency" value="0.33"/>
+
+        <!-- Set the timeout for progress in exploration -->
         <param name="progress_timeout" value="30.0"/>
+
+        <!-- Set parameters related to exploration algorithms -->
         <param name="potential_scale" value="3.0"/>
         <param name="orientation_scale" value="0.0"/>
         <param name="gain_scale" value="1.0"/>
+
+        <!-- Set the tolerance for transforms -->
         <param name="transform_tolerance" value="0.3"/>
+
+        <!-- Set the minimum size for frontiers to be considered -->
         <param name="min_frontier_size" value="0.5"/>
+
     </node>
 
 </launch>

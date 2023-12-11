@@ -1,29 +1,54 @@
 <launch>
 
+    <!-- Launching the move_base node for navigation -->
+
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+
+        <!-- Load costmap configurations for the global and local costmaps -->
         <rosparam file="$(find scout_exploration)/cfg/costmap_common.yaml" command="load" ns="global_costmap" />
         <rosparam file="$(find scout_exploration)/cfg/costmap_common.yaml" command="load" ns="local_costmap" />
         <rosparam file="$(find scout_exploration)/cfg/costmap_local.yaml" command="load" />
         <rosparam file="$(find scout_exploration)/cfg/costmap_global.yaml" command="load" />
         
+        <!-- Load parameters for the base local planner -->
         <rosparam file="$(find scout_exploration)/cfg/base_local_planner_params.yaml" command="load" />
+
     </node>
 
+    <!-- Include the scout_robot_base.launch file for robot-specific configurations -->
     <include file="$(find scout_bringup)/launch/scout_robot_base.launch"/>
 
+    <!-- Launching the explore_lite node for exploration -->
+
     <node pkg="explore_lite" type="explore" respawn="false" name="explore" output="screen">
+
+        <!-- Set the base frame for the robot -->
         <param name="robot_base_frame" value="robot/base_link_fixed"/>
+        
+        <!-- Specify the topic for the costmap -->
         <!--<param name="costmap_topic" value="/move_base/global_costmap/costmap"/>-->
-        <!--<param name="costmap_updates_topic" value="/move_base/global_costmap/costmap_updates"/>-->
         <param name="costmap_topic" value="/map"/>
+
+        <!-- Enable visualization of exploration data -->
         <param name="visualize" value="true"/>
+
+        <!-- Set the planner frequency for exploration -->
         <param name="planner_frequency" value="3.0"/>
+
+        <!-- Set the timeout for progress in exploration -->
         <param name="progress_timeout" value="10"/>
+
+        <!-- Set parameters related to exploration algorithms -->
         <param name="potential_scale" value="2.0"/>
         <param name="orientation_scale" value="2.5"/>
         <param name="gain_scale" value="1.0"/>
+
+        <!-- Set the tolerance for transforms -->
         <param name="transform_tolerance" value="0.3"/>
+
+        <!-- Set the minimum size for frontiers to be considered -->
         <param name="min_frontier_size" value="0.75"/>
+
     </node>
 
 </launch>

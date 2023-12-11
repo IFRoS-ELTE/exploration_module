@@ -1,21 +1,40 @@
+# Parameters related to navigation
+
+# Maximum range at which obstacles are considered
 obstacle_range: 6.0
+
+# Maximum range at which to perform ray tracing
 raytrace_range: 6.0
+
+# Inflation radius for obstacles in the costmap
 inflation_radius: 0.55
-footprint:
-  [
-    [-0.325, -0.325],
-    [-0.325, 0.325],
-    [0.325, 0.325],
-    [0.46, 0.0],
-    [0.325, -0.325],
+
+# Definition of the robot's footprint in the costmap
+footprint: [
+    [-0.325, -0.325], # Coordinates of the first point in the footprint
+    [-0.325, 0.325], # Coordinates of the second point in the footprint
+    [0.325, 0.325], # Coordinates of the third point in the footprint
+    [0.46, 0.0], # Coordinates of the fourth point in the footprint
+    [0.325, -0.325], # Coordinates of the fifth point in the footprint
   ]
 
+# List of observation sources used for updating the costmap
 observation_sources: base_scan
-base_scan:
-  {
+
+# Configuration for the base_scan observation source
+base_scan: {
+    # Frame name of the laser scan data
     frame_name: robot/base_link_fixed,
+
+    # Data type of the observation source (LaserScan in this case)
     data_type: LaserScan,
+
+    # ROS topic where the laser scan data is published
     topic: /repub/scan,
+
+    # Whether the laser scan data is used for marking obstacles in the costmap
     marking: true,
+
+    # Whether the laser scan data is used for clearing free space in the costmap
     clearing: true,
   }

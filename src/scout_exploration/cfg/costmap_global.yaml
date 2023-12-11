@@ -1,6 +1,16 @@
+# Configuration for the global costmap
 global_costmap:
+  # Reference frame for the costmap, typically linked to the robot's odometry frame
   global_frame: robot/odom
+
+  # Reference frame for the robot's base link
   robot_base_frame: robot/base_link_fixed
+
+  # Frequency at which the costmap is updated
   update_frequency: 0.5
+
+  # Frequency at which the costmap is published
   publish_frequency: 0.5
+
+  # Whether to use a static map or not
   static_map: true

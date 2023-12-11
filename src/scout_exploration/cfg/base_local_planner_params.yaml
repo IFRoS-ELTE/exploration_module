@@ -1,4 +1,10 @@
+# Configuration for the base local planner
+
+# Specify the type of local planner (TrajectoryPlannerROS in this case)
 base_local_planner:
   TrajectoryPlannerROS:
-    max_vel_x: 0.1 # Set your maximum linear velocity here
-    max_rotational_vel: 0.05 # Set your maximum angular velocity here
+    # Set the maximum linear velocity for the robot
+    max_vel_x: 0.1
+
+    # Set the maximum angular (rotational) velocity for the robot
+    max_rotational_vel: 0.05
