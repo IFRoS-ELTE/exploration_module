@@ -3,6 +3,11 @@
 This module enables the Silvanus robot to autonomously explore an unknown area using the [move_base](https://wiki.ros.org/move_base) and [explore_lite](https://wiki.ros.org/explore_lite) packages. The module is completely containerized and can easily adapted to work with other robots because of Docker.
 
 The exploration_module is used in the [ball_picking_project repository](https://github.com/IFRoS-ELTE/ball_picking_project).
+<br><br>
+**Created by:** <br>
+Kevin Schmidt: cbsx3q@inf.elte.hu
+
+---
 
 ## Requirements
 
